@@ -9,18 +9,18 @@ Feature: User File status
 
     Scenario: File status pending
         Given a user file with received status 
-        When <duration> has passed since user file creation
-        Then he should change status to pending
+        When "24 heures" has passed since user file creation
+        Then it should change status to pending
     
      Scenario: File status supported
         Given a user file with status pending
         When user file is supported
-        Then he should change status to supported
+        Then it should change status to supported
 
      Scenario Outline: File validation
         Given a user file with status supported
         When user file is "<validationState>"
-        Then he should change status to "<status>"
+        Then it should change status to "<status>"
 
        Examples:
             | validationState | status |
